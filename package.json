@@ -9,8 +9,8 @@
   "license": "MIT",
   "keywords": [
     "joplin-plugin",
-    "todotxt",
     "todo",
+    "todotxt",
     "task management"
   ],
   "devDependencies": {
