@@ -2,15 +2,15 @@
 
 Metis is an open-source Task Manager Plugin for Joplin based on [Todo.txt]((http://todotxt.org/)) specification.
 
-Todo.txt format is chosen as it provides a reliable fallback when the plugin is not available (for example when using Joplin Mobile).
+Todo.txt format is chosen as it provides a reliable fallback when the plugin is not available for use (for example when using Joplin Mobile).
 
 Metis is currently in development, more features and fixes will be added in the future but as it is a hobby project it will take a while.
-If you found a bug or want to request a feature you can put it in [issues](https://github.com/hieuthi/joplin-plugin-metis/issues). However, I would like to keep it simple so an elaborated feature will probably not be realized.
+If you found a bug or want to request a feature you can put it in [issues](https://github.com/hieuthi/joplin-plugin-metis/issues). As I want to keep Metis simple, elaborated features will unlikely be implemented.
 
-![screencap](https://raw.githubusercontent.com/hieuthi/joplin-plugin-metis/main/docs/metis-v0.1.0-screencap.gif)
+![screencap](https://raw.githubusercontent.com/hieuthi/joplin-plugin-metis/main/docs/metis-v0.1.1-screencap.gif)
 
 ## Usage
-Current version only has a handful of features but it is enougn to realize basic features of a todo.txt based application:
+Current version only has a handful of features but it is enough to realize a basic task manager application:
 - Render fenced text into HTML-based Todo List by adding `todotxt` as language
 - Inline markdown and HTML tags can be rendered inside the block
 - Checkbox to toggle the completion status of a task
