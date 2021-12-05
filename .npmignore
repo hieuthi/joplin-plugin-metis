@@ -4,5 +4,6 @@
 /api
 /src
 /dist
+/docs
 tsconfig.json
 webpack.config.js

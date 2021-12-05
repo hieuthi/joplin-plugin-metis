@@ -1,24 +1,25 @@
-# Joplin Plugin
+# Metis
 
-This is a template to create a new Joplin plugin.
+Metis is an open-source Task Manager Plugin for Joplin based on [Todo.txt]((http://todotxt.org/)) specification.
 
-The main two files you will want to look at are:
+Todo.txt format is chosen as it provides a reliable fallback when the plugin is not available (for example when using Joplin Mobile).
 
-- `/src/index.ts`, which contains the entry point for the plugin source code.
-- `/src/manifest.json`, which is the plugin manifest. It contains information such as the plugin a name, version, etc.
+Metis is currently in development, more features and fixes will be added in the future but as it is a hobby project it will take a while.
+If you found a bug or want to request a feature you can put it in [issues](https://github.com/hieuthi/joplin-plugin-metis/issues). However, I would like to keep it simple so an elaborated feature will probably not be realized.
 
-## Building the plugin
+![screencap](https://raw.githubusercontent.com/hieuthi/joplin-plugin-metis/main/docs/metis-v0.1.0-screencap.gif)
 
-The plugin is built using Webpack, which creates the compiled code in `/dist`. A JPL archive will also be created at the root, which can use to distribute the plugin.
+## Usage
+Current version only has a handful of features but it is enougn to realize basic features of a todo.txt based application:
+- Render fenced text into HTML-based Todo List by adding `todotxt` as language
+- Inline markdown and HTML tags can be rendered inside the block
+- Checkbox to toggle the completion status of a task
+- Sorting: syntax `sort:<field>:<order>` with `<order>` take value `asc` or `desc` and can be omitted to fallback to a default value. Current version supports these `<fields>`: `status`, `priority`, `creationDate`, `completionDate`, and `default`. The `sort:default` is a magic keyword that will be turned into `sort:priority:desc sort:status:asc`.
+- Filtering: syntax `filter:<field>:<value1>,<value2>`. Current supported `<field>` are: `status` (`x` or `o`), `priority` (`A`, `B`,..., `~`), `project`, and `context`. In case of `project` and `context` you can omit `+` and `@` from your keywords.
+- You can add multiple sorting and filtering queries to narrow down your list.
 
-To build the plugin, simply run `npm run dist`.
+## Library
+I have developed and published an open-source javascript library for parsing todo.txt format as a component of this project [todotxt-parser-js](https://github.com/hieuthi/todotxt-parser-js).
 
-The project is setup to use TypeScript, although you can change the configuration to use plain JavaScript.
-
-## Updating the plugin framework
-
-To update the plugin framework, run `npm run update`.
-
-In general this command tries to do the right thing - in particular it's going to merge the changes in package.json and .gitignore instead of overwriting. It will also leave "/src" as well as README.md untouched.
-
-The file that may cause problem is "webpack.config.js" because it's going to be overwritten. For that reason, if you want to change it, consider creating a separate JavaScript file and include it in webpack.config.js. That way, when you update, you only have to restore the line that include your file.
+## License
+[MIT](https://raw.githubusercontent.com/hieuthi/joplin-plugin-metis/main/LICENSE)
