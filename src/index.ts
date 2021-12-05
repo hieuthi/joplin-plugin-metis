@@ -17,6 +17,7 @@ joplin.plugins.register({
 			joplin.commands.execute('editor.execCommand', {
 				name: 'todoTxtAction', args: [message]
 			});
+			joplin.commands.execute('editor.focus');
 		});
 	},
 });
