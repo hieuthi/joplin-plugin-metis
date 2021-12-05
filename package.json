@@ -1,6 +1,6 @@
 {
   "name": "joplin-plugin-metis",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "scripts": {
     "dist": "webpack --joplin-plugin-config buildMain && webpack --joplin-plugin-config buildExtraScripts && webpack --joplin-plugin-config createArchive",
     "prepare": "npm run dist",
@@ -8,7 +8,10 @@
   },
   "license": "MIT",
   "keywords": [
-    "joplin-plugin","todotxt","todo","task management"
+    "joplin-plugin",
+    "todotxt",
+    "todo",
+    "task management"
   ],
   "devDependencies": {
     "@types/node": "^14.0.14",
