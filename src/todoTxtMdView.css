@@ -1,10 +1,10 @@
 ul.todotxt {
 	--color-default: #999;
 	--color-faded: #999;
-	--color-A: rgb(247, 210, 110);
-	--color-B: rgb(21, 91, 218);
-	--color-C: rgb(152, 104, 1);
-	--color-D: rgb(80, 161, 79);
+	--color-A: rgb(247, 210, 110); /* yellow* */
+	--color-B: rgb(152, 104, 1);   /* red */
+	--color-C: rgb(80, 161, 79);   /* green */
+	--color-D: rgb(21, 91, 218);   /* blue */
 	--project-background-color: rgb(247, 210, 110);
 	--project-color: black;
 	--context-color: rgb(152, 104, 1);
@@ -52,7 +52,6 @@ ul.todotxt li.todotxt-header {
 }
 .todo-meta {
 	color: var(--color-faded);
-	font-size: 12px;
 }
 .todo-edit { 
 	display: inline-block;

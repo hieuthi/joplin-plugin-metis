@@ -99,8 +99,8 @@ function todoTxtMd(state, startLine, endLine, silent) {
 		todoTokens.push(Object.assign(new state.Token('bullet_list_open', 'ul', 1), {block: true, attrs: [['class','todotxt']]}));
 
 		// Render TodoTxt Header
-		var headerHtml  = `<b>Sort</b>: ${sortOptions.join(' ')}\n`
-						+ `<b>Filter</b>: ${filterOptions.join(' ')}\n`
+		var headerHtml  = `<b>Sort</b>: ${sortOptions.join(' ')} `
+						+ `<b>Filter</b>: ${filterOptions.join(' ')} `
 						+ `<b>Show</b>: ${queryView.count('notcompleted')}/${todoView.count('notcompleted')} OPEN ${queryView.count()}/${todoView.count()} ALL`;
 
 
