@@ -1,6 +1,6 @@
 # Metis
 
-Metis is an open-source Task Manager Plugin for Joplin based on [Todo.txt]((http://todotxt.org/)) specification.
+Metis is an open-source Task Manager Plugin for Joplin based on [Todo.txt](http://todotxt.org/) specification.
 
 Todo.txt format is chosen as it provides a reliable fallback when the plugin is not available for use (for example when using Joplin Mobile).
 
