@@ -14,9 +14,26 @@ Current version only has a handful of features but it is enough to realize a bas
 - Render fenced text into HTML-based Todo List by adding `todotxt` as language
 - Inline markdown and HTML tags can be rendered inside the block
 - Checkbox to toggle the completion status of a task
-- Sorting: syntax `sort:<field>:<order>` with `<order>` take value `asc` or `desc` and can be omitted to fallback to a default value. Current version supports these `<fields>`: `status`, `priority`, `creationDate`, `completionDate`, and `default`. The `sort:default` is a magic keyword that will be turned into `sort:priority:desc sort:status:asc`.
+- Sorting: syntax `sort:<field>:<order>` with `<order>` take value `asc` or `desc` and can be omitted to fallback to a default value. Current version supports these `<field>`: `status`, `priority`, `creationDate`, `completionDate`, and `default`. The `sort:default` is a magic keyword that will be turned into `sort:priority:desc sort:status:asc`.
 - Filtering: syntax `filter:<field>:<value1>,<value2>`. Current supported `<field>` are: `status` (`x` or `o`), `priority` (`A`, `B`,..., `~`), `project`, and `context`. In case of `project` and `context` you can omit `+` and `@` from your keywords.
 - You can add multiple sorting and filtering queries to narrow down your list.
+
+## Tips & Tricks
+
+### Compact View
+You can make the List View more compact by hiding the completion/creation date panel and only show them when mouse is hovering. Just parsing these into your `userstyle.css`. 
+```
+li.todo span.todo-panel {
+  margin: 0;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.2s ease-out;
+}
+li.todo:hover span.todo-panel {
+  height: 14px;
+}
+```
+You may have to adjust `height: 14px;` depend on your font-size. Note that CSS animation based on height can be a computing intensive task so don't do this if you have very long note.
 
 ## Library
 I have developed and published an open-source javascript library for parsing todo.txt format as a component of this project [todotxt-parser-js](https://github.com/hieuthi/todotxt-parser-js).
