@@ -25,10 +25,25 @@ ul.todotxt li.todotxt-header {
 .todo-priority { 
 	display: inline-block;
 	width: 1.2em;
-	font-weight: 700;
-
+	overflow: hidden;
 	color: var(--color-default);
+	vertical-align: text-bottom;
 }
+.todo-priority select {
+	appearance: none;
+	background-color: transparent;
+	border-color: transparent;
+	color: inherit;
+	font-size: inherit;
+	font-weight: 700;
+}
+.todo-priority select:focus-visible {
+	outline: none;
+}
+.todo-priority select:hover {
+	text-decoration: underline;
+}
+
 .todo-panel { 
 	display: block;
 	font-size: 12px;
@@ -60,7 +75,7 @@ ul.todotxt li.todotxt-header {
 }
 .todo-checkbox { 
 	margin-left: -1.9em;
-	margin-right: 0.2em;
+	margin-right: 0.5em;
 	display: inline-block;
 	vertical-align: text-top;
 	position: relative;
@@ -89,7 +104,7 @@ ul.todotxt li.todotxt-header {
 	background-color: var(--color-default);
 }
 .todo-checkbox .todo-checkmark:after {
-	content: '𐄂';
+	content: '×';
 	position: relative;
 	display: inline-block;
 	transition: opacity var(--transition-duration);

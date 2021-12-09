@@ -23,6 +23,15 @@ function plugin(CodeMirror) {
 				}
 				this.replaceRange(todo.toString(),CodeMirror.Pos(lineIdx,0),CodeMirror.Pos(lineIdx,line.length));
 				break;
+			case 'changePriority':
+				var lineIdx  = parseInt(params[1]);
+				var priority = params[2] == '~' ? null : params[2];
+				var line     = this.getLine(lineIdx);
+				var todo     = TodoTxt.parseLine(line);
+
+				todo.setPriority(priority);
+				this.replaceRange(todo.toString(),CodeMirror.Pos(lineIdx,0),CodeMirror.Pos(lineIdx,line.length));
+				break;
 			case 'selectLine':
 				var lineIdx = parseInt(params[1]);
 				var line    = this.getLine(lineIdx);

@@ -18,7 +18,26 @@ function renderTask(state, task) {
 							new state.Token('label_close', 'label', -1)
 						]);
 
-	var html = ` <span class="todo-priority">${todo.getPriority('~')}</span>`;
+	// var html = ` <span class="todo-priority">${todo.getPriority('~')}</span>`;
+	const priority = todo.getPriority('~');
+	const options  = ['A','B','C','D','E','~'];
+	tokens.push(Object.assign(new state.Token('div_open', 'div', 1), 
+								{attrs:[['class','todo-priority']]}));
+	tokens.push(Object.assign(new state.Token('select_open', 'select', 1), 
+								{attrs:[['name', 'priority']]}));
+	options.forEach(function(option){
+		let token = new state.Token('option_open', 'option', 1);
+		token.attrs = [['value', option]];
+		if (priority==option) { token.attrs.push(['selected', 'selected']);}
+		tokens.push(token);
+		tokens.push(Object.assign(new state.Token('html_inline', '', 0), {content: option}));
+		tokens.push(new state.Token('option_close', 'option', -1));
+
+	})
+	tokens.push(new state.Token('select_close', 'select', -1))
+	tokens.push(new state.Token('div_close', 'div', -1))
+
+	var html = '';
 
 	const items = todo.getBodyTokens();
 	for (var i=0; i<items.length; i++){
@@ -58,7 +77,8 @@ function todoTxtMd(state, startLine, endLine, silent) {
 		if (token.info.length < 7) { continue; }
 
 		const params = token.info.trim().split(' ');
-		if (params.shift() !== 'todotxt') { continue; }
+		const plate  = params.shift();
+		if ( plate !== 'todotxt' && plate !== 'archive-todotxt') { continue; }
 
 		const listLineIdx = token.map[0];
 
