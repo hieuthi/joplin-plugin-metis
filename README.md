@@ -1,8 +1,8 @@
 # Metis
 
-Metis is an open-source Task Manager Plugin for Joplin based on [Todo.txt](http://todotxt.org/) specification.
+Metis is an open-source Task Manager Plugin for Joplin based on Todo.txt specification.
 
-Todo.txt format is chosen as it provides a reliable fallback when the plugin is not available for use (for example when using Joplin Mobile).
+[Todo.txt](http://todotxt.org/) format is chosen as it provides a reliable fallback when the plugin is not available for use (for example when using Joplin Mobile).
 
 Metis is currently in development, more features and fixes will be added in the future but as it is a hobby project it will take a while.
 If you found a bug or want to request a feature you can put it in [issues](https://github.com/hieuthi/joplin-plugin-metis/issues). As I want to keep Metis simple, elaborated features will unlikely be implemented.
@@ -12,6 +12,7 @@ If you found a bug or want to request a feature you can put it in [issues](https
 ## Usage
 Current version only has a handful of features but it is enough to realize a basic task manager application:
 - Render fenced text into HTML-based Todo List by adding `todotxt` (or `archive-todotxt`) as language
+- Todo.txt language mode for CodeMirror fenced text
 - Inline markdown and HTML tags can be rendered inside the block
 - Todo Item Actions:
   - Toggle checkbox to change the completion status of a task
@@ -40,6 +41,16 @@ You may have to adjust `height: 14px;` depend on your font-size. Note that CSS a
 
 ### Archive Todo.txt
 Using `archive-todotxt` language plate for in-active todo list. There is no different between it and `todotxt`, but it helps searching for active list a lot easier.
+
+Version 0.1.4 and above add a todo.txt language  mode defined for CodeMirror editor which highlight todo.txt syntax. If you don't want syntax highlight you can use archive-todotxt instead of todotxt language plate.
+
+### Line-through Done Items (Editor)
+Default stylesheet simply assigns a faded color to done todo items but you can also line-through them by adding following style to your `userchrome.css`:
+```css
+.cm-todo-done {
+    text-decoration: line-through;
+}
+```
 
 ## Library
 I have developed and published an open-source javascript library for parsing todo.txt format as a component of this project [todotxt-parser-js](https://github.com/hieuthi/todotxt-parser-js).
