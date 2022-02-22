@@ -17,7 +17,7 @@ Current version only has a handful of features but it is enough to realize a bas
 - Todo Item Actions:
   - Toggle checkbox to change the completion status of a task
   - Change priority directly with rendered html
-  - Edit button to select source text
+  - Select button to select source text
 - Sorting: syntax `sort:<field>:<order>` with `<order>` take value `asc` or `desc` and can be omitted to fallback to a default value. Current version supports these `<field>`: `status`, `priority`, `creationDate`, `completionDate`, and `default`. The `sort:default` is a magic keyword that will be turned into `sort:priority:desc sort:status:asc`.
 - Filtering: syntax `filter:<field>:<value1>,<value2>`. Current supported `<field>` are: `status` (`x` or `o`), `priority` (`A`, `B`,..., `~`), `project`, and `context`. In case of `project` and `context` you can omit `+` and `@` from your keywords.
 - You can add multiple sorting and filtering queries to narrow down your list.
@@ -38,6 +38,11 @@ li.todo:hover span.todo-panel {
 }
 ```
 You may have to adjust `height: 14px;` depend on your font-size. Note that CSS animation based on height can be a computing intensive task so don't do this if you have very long note.
+
+### Quickly Input Todo Items
+Typing a todo item can be tiresome as you have to type special characters like `(`, `)`, and ISO datetimes. However, it is recommended that you will type `creationDate` instead of skipping it as this provides another dimension when you have to review your todo list. Moreover the plugin will automatically fill in `completionDate` if it found the item already has `creationDate` when you toggle the checkbox.
+
+To make typing todo item easier, I have published [Slash Command plugin for Joplin](https://github.com/hieuthi/joplin-plugin-slash-commands). Basically you can type `/todoa`, `/todob`, `/todoc`, `/todod`, or `/todoe` and the Slash Command plugin will unroll it into respective priority and with the current datetime in ISO format for `creationDate`.
 
 ### Archive Todo.txt
 Using `archive-todotxt` language plate for in-active todo list. There is no different between it and `todotxt`, but it helps searching for active list a lot easier.
