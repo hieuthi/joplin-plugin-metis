@@ -21,7 +21,7 @@ function makeTodoViewActionable() {
 
 			const checkbox   = todo.getElementsByClassName('todo-checkbox')[0].getElementsByTagName('input')[0];
 			const priority   = todo.getElementsByClassName('todo-priority')[0].getElementsByTagName('select')[0];
-			const editButton = todo.getElementsByClassName('todo-edit')[0];
+			const selectButton = todo.getElementsByClassName('todo-select')[0];
 
 			checkbox.onclick = function (){ 
 				setTimeout(()=> {webviewApi.postMessage('todoTxtMd', `toggleStatus:${lineIdx}`)}, 170);
@@ -30,7 +30,7 @@ function makeTodoViewActionable() {
 				var value = option.target.value;
 				webviewApi.postMessage('todoTxtMd', `changePriority:${lineIdx}:${value}`);
 			}
-			editButton.onclick = function () {
+			selectButton.onclick = function () {
 				webviewApi.postMessage('todoTxtMd', `selectLine:${lineIdx}`);
 			}
 		}

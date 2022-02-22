@@ -36,6 +36,7 @@ ul.todotxt li.todotxt-header {
 	color: inherit;
 	font-size: inherit;
 	font-weight: 700;
+	cursor: pointer;
 }
 .todo-priority select:focus-visible {
 	outline: none;
@@ -59,16 +60,21 @@ ul.todotxt li.todotxt-header {
 .todo-project {
 	background-color: var(--project-background-color);
 	color: var(--project-color);
-	border-radius: 4px;
-	padding: 0 4px 0 2px;
+	border-radius: 2px;
 }
 .todo-context {
 	color: var(--context-color);
 }
+.todo-count {
+	color: var(--color-faded);
+}
+.todo-count::before{
+	content: '/';
+}
 .todo-meta {
 	color: var(--color-faded);
 }
-.todo-edit { 
+.todo-select { 
 	display: inline-block;
 	min-width: 3em;
 	text-decoration: none;

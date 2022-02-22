@@ -65,7 +65,7 @@ function renderTask(state, task) {
 								{attrs:[['class','todo-panel']]}));
 	html  = `<span class="todo-completion">${todo.getCompletionDate() || ' '}</span> `;
 	html += `<span class="todo-creation">${todo.getCreationDate() || ' '}</span> `;
-	html += `<a class="todo-edit" href="#">Edit</a>`
+	html += `<a class="todo-select" href="#">Select</a>`
 	tokens.push(Object.assign(new state.Token('inline', '', 0), {content: html, children: []}));
 	tokens.push(new state.Token('span_close', 'span', -1));
 
@@ -117,6 +117,8 @@ function todoTxtMd(state, startLine, endLine, silent) {
 		const todoTxt   = TodoTxt.parse(lines.join('\n'));
 		const todoView  = todoTxt.getTodoView();
 		const queryView = todoView.filter(filterOptions, true).sort(sortOptions);
+		const countedProjects = queryView.getCountedProjects();
+		const countedContexts = queryView.getCountedContexts();
 
 		todoTokens = [];
 		todoTokens.push(Object.assign(new state.Token('bullet_list_open', 'ul', 1), {block: true, attrs: [['class','todotxt']]}));
@@ -124,8 +126,16 @@ function todoTxtMd(state, startLine, endLine, silent) {
 		// Render TodoTxt Header
 		var headerHtml  = `<b>Sort</b>: ${sortOptions.join(' ')} `
 						+ `<b>Filter</b>: ${filterOptions.join(' ')} `
-						+ `<b>Show</b>: ${queryView.count('notcompleted')}/${todoView.count('notcompleted')} OPEN ${queryView.count()}/${todoView.count()} ALL`;
+						+ `<b>Show</b>: ${queryView.count('notcompleted')}/${todoView.count('notcompleted')} OPEN ${queryView.count()}/${todoView.count()} ALL `;
 
+		headerHtml += '<b>Projects</b>: ';
+		Object.keys(countedProjects).sort().forEach(key => {
+			headerHtml += `<span class="todo-project">${key}</span><span class="todo-count">${countedProjects[key]}</span> `;
+		})
+		headerHtml += '<b>Contexts</b>: ';
+		Object.keys(countedContexts).sort().forEach(key => {
+			headerHtml += `<span class="todo-context">${key}</span><span class="todo-count">${countedContexts[key]}</span> `;
+		})
 
 		todoTokens.push(Object.assign(new state.Token('list_item_open', 'li', 1), {block: true, attrs: [["class","todotxt-header"]]}));
 		todoTokens.push(Object.assign(new state.Token('inline', '', 0), {content: headerHtml, children: []}));
