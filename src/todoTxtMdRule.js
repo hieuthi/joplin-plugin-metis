@@ -20,7 +20,10 @@ function renderTask(state, task) {
 
 	// var html = ` <span class="todo-priority">${todo.getPriority('~')}</span>`;
 	const priority = todo.getPriority('~');
-	const options  = ['A','B','C','D','E','~'];
+	var options  = ['A','B','C','D','E','~'];
+	if (options.includes(priority) === false){
+		options = ['A','B','C','D','E', priority, '~']
+	}
 	tokens.push(Object.assign(new state.Token('div_open', 'div', 1), 
 								{attrs:[['class','todo-priority']]}));
 	tokens.push(Object.assign(new state.Token('select_open', 'select', 1), 
