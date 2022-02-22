@@ -28,6 +28,6 @@
     "yargs": "^16.2.0"
   },
   "dependencies": {
-    "todotxt-parser-js": "^0.1.2"
+    "todotxt-parser-js": "^0.1.3"
   }
 }
