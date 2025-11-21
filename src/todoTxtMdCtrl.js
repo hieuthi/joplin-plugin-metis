@@ -1,6 +1,9 @@
 const TodoTxt = require('todotxt-parser-js');
 
 function plugin(CodeMirror) {
+	if (CodeMirror.cm6 != null)
+		return;
+
 	const mode = {
 		start: [
 			{ regex: /\s*x\s.*$/, sol: true, token: "todo-done" },

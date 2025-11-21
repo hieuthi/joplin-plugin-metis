@@ -13,6 +13,11 @@ joplin.plugins.register({
 			'todoTxtMdCtrl',
 			'./todoTxtMdCtrl.js'
 		);
+		await joplin.contentScripts.register(
+			ContentScriptType.CodeMirrorPlugin,
+			'todoTxtMdCtrlCM6',
+			'./todoTxtMdCtrl.cm6.js'
+		);
 		await joplin.contentScripts.onMessage('todoTxtMd', (message:any) => {
 			joplin.commands.execute('editor.execCommand', {
 				name: 'todoTxtAction', args: [message]

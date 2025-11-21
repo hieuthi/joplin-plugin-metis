@@ -1,6 +1,7 @@
 {
 	"extraScripts": [
 		"todoTxtMdRule.js",
-		"todoTxtMdCtrl.js"
+		"todoTxtMdCtrl.js",
+		"todoTxtMdCtrl.cm6.js"
 	]
 }
